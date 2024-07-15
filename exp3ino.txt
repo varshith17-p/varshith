@@ -1,0 +1,22 @@
+int LED=2;
+int Buzzer=3;
+int Rx;
+void setup() {
+  pinMode(LED,OUTPUT);
+  Serial.begin(9600);
+}
+void loop() {
+  if(Serial.available()>0)
+  {
+    if(Rx=='T')
+    {
+      digitalWrite(LED,LOW);
+      digitalWrite(Buzzer,HIGH);
+    }
+    if(Rx=='F')
+    {
+      digitalWrite (LED,HIGH);
+      digitalWrite(Buzzer,LOW);
+    }
+  }
+}
